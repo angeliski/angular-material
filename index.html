@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- CSS (load bootstrap) -->
+    
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <style>
+        .navbar { border-radius:0; }
+    </style>
+
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+    <script src="app.js"></script>
+	<script src="controllers/LoginController.js"></script>
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="app" ng-controller="LoginController">
+    
+       <md-content md-theme="docs-dark" layout="row" layout-align="center start" layout-fill layout-margin>
+        <md-whiteframe layout="column" flex flex-md="50" flex-lg="50" flex-gt-lg="33" class="md-whiteframe-z2" layout-fill>
+            <form name="loginForm" layout="column" layout-fill layout-padding layout-margin>
+                <md-input-container>
+                  <label>
+                    Login
+                  </label>
+                  <input type="text" ng-model="login.user" aria-label="email" required/>
+                </md-input-container>
+                <md-input-container>
+                  <label>
+                    Senha
+                  </label>
+                  <input type="password" ng-model="login.password" aria-label="password" required/>
+                </md-input-container>
+                <div layout="row" layout-align="space-between center">
+                  <md-button class="md-raised md-primary" ng-click="login.login()" aria-label="login" ng-disabled="$loginForm.$invalid()">Acessar
+                  </md-button>
+                </div>
+              </form>
+          <md-toolbar ng-show="login.error" class="md-warn" layout="row" layout-fill layout-padding layout-margin>
+            <p class="md-body-1">{{ login.error }}</p>
+          </md-toolbar>
+          <md-divider></md-divider>
+      </md-whiteframe>
+      </md-content>
+</div>
+</body>
+</html>
